@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class cours : MonoBehaviour
 {
-    [SerializeField] private Vector3 _deplacement;
-    [SerializeField] private float vitesse;
+   
+    Vector3 vitesse;
     // Start is called before the first frame update
     void Start()
     {
-        vitesse = Random.Range(0f, 5f);
+        vitesse.z = Random.Range(1f, 4f);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        transform.Translate(0, 0, vitesse * Time.deltaTime, Space.Self);
 
+        transform.Translate(vitesse * Time.deltaTime, Space.Self);
+        if (transform.position.x > 5f)
+        {
+            Debug.Log(gameObject.name);
+        }
 
     }
 }
